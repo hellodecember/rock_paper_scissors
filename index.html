@@ -5,8 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper, Scissors</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+    <div class="title">
+        <h1>Rock, Paper, Scissors!</h1>
+        <p>let's play!</p>
+    </div>
+    <div class="container">
+        <button>Rock</button>
+        <button>Paper</button>
+        <button>Scissors</button>
+    </div>
+
     <script>
         var win = 0; 
         var loss = 0;
@@ -55,21 +66,19 @@
         }
 
         function game() {
-            for(let i = 0; i < 5; i++) {
-                let playerInput = prompt("Enter a decision: ", "rock, paper, or scissors");
-                if(playerInput == null) {
-                    break;
-                }
+            let playerInput = prompt("Enter a decision: ", "rock, paper, or scissors");
+            if(playerInput == null) {
+                break;
+            }
 
-                playerInput.toLowerCase();
+            playerInput.toLowerCase();
 
-                if(playerInput == "rock" || playerInput == "paper" || playerInput == "scissors") {
-                    console.log(playRound(playerInput, computerPlay()));
-                    console.log("Number of wins: " + win + ", Number of losses: " + loss);
-                }
-                else {
-                    console.log("incorrect value.");
-                }
+            if(playerInput == "rock" || playerInput == "paper" || playerInput == "scissors") {
+                console.log(playRound(playerInput, computerPlay()));
+                console.log("Number of wins: " + win + ", Number of losses: " + loss);
+            }
+            else {
+                console.log("incorrect value.");
             }
         }
 
