@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors</title>
+</head>
+<body>
+    <script>
+        var win = 0; 
+        var loss = 0;
+
+        function computerPlay() {
+            let num = Math.floor(Math.random() * 3) + 1;
+            let choice;
+
+            switch(num) {
+                case 1:
+                    choice = "rock";
+                    break;
+                case 2:
+                    choice = "paper";
+                    break;
+                case 3:
+                    choice = "scissors";
+                    break;
+            }
+
+            return choice;
+        }
+
+        function playRound(playerSelection, computerSelection) {
+            computerSelection = computerPlay();
+
+            if(playerSelection == computerSelection) {
+                return "It's a tie!";
+            }
+            else if(playerSelection == "paper" && computerSelection == "rock") {
+                win += 1;
+                return "Congratulations! You win.";
+            }
+            else if(playerSelection == "rock" && computerSelection == "scissors") {
+                win += 1;
+                return "Congratulations! You win.";
+            }
+            else if(playerSelection == "scissors" && computerSelection == "paper") {
+                win += 1;
+                return "Congratulations! You win.";
+            }
+            else {
+                loss += 1;
+                return "Sorry! You lose.";
+            }
+        }
+
+        function game() {
+            for(let i = 0; i < 5; i++) {
+                let playerInput = prompt("Enter a decision: ", "rock, paper, or scissors");
+                if(playerInput == null) {
+                    break;
+                }
+
+                playerInput.toLowerCase();
+
+                if(playerInput == "rock" || playerInput == "paper" || playerInput == "scissors") {
+                    console.log(playRound(playerInput, computerPlay()));
+                    console.log("Number of wins: " + win + ", Number of losses: " + loss);
+                }
+                else {
+                    console.log("incorrect value.");
+                }
+            }
+        }
+
+        game();
+    </script>
+</body>
+</html>
