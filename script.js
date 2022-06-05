@@ -7,6 +7,9 @@ var loss = 0;
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
+const results = document.querySelector("#results");
+const playerResult = document.createElement("p");
+const score = document.createElement("p");
 
 function computerPlay() {
     let num = Math.floor(Math.random() * 3) + 1;
@@ -29,28 +32,38 @@ function computerPlay() {
 
 function playRound(playerSelection, computerSelection) {
     if(playerSelection == computerSelection) {
-        console.log("It's a tie!");
-        return "It's a tie!";
+        playerResult.textContent = "It's a tie!";
+        score.textContent = "Number of wins: " + win + ", Number of losses: " + loss;
+        results.appendChild(playerResult);
+        results.appendChild(score);
     }
     else if(playerSelection == "paper" && computerSelection == "rock") {
         win += 1;
-        console.log("Congratulations! You win.");
-        return "Congratulations! You win.";
+        playerResult.textContent = "Congratulations! You win.";
+        score.textContent = "Number of wins: " + win + ", Number of losses: " + loss;
+        results.appendChild(playerResult);
+        results.appendChild(score);
     }
     else if(playerSelection == "rock" && computerSelection == "scissors") {
         win += 1;
-        console.log("Congratulations! You win.");
-        return "Congratulations! You win.";
+        playerResult.textContent = "Congratulations! You win.";
+        score.textContent = "Number of wins: " + win + ", Number of losses: " + loss;
+        results.appendChild(playerResult);
+        results.appendChild(score);
     }
     else if(playerSelection == "scissors" && computerSelection == "paper") {
         win += 1;
-        console.log("Congratulations! You win.");
-        return "Congratulations! You win.";
+        playerResult.textContent = "Congratulations! You win.";
+        score.textContent = "Number of wins: " + win + ", Number of losses: " + loss;
+        results.appendChild(playerResult);
+        results.appendChild(score);
     }
     else {
         loss += 1;
-        console.log("Sorry! You lose.");
-        return "Sorry! You lose.";
+        playerResult.textContent = "Sorry! You lose.";
+        score.textContent = "Number of wins: " + win + ", Number of losses: " + loss;
+        results.appendChild(playerResult);
+        results.appendChild(score);
     }
 }
 
@@ -66,3 +79,4 @@ paper.addEventListener("click", () => {
 scissors.addEventListener("click", () => {
     playRound("scissors", computerPlay());
 });
+

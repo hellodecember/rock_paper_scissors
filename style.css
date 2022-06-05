@@ -18,6 +18,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 60px;
+    margin-bottom: 50px;
 }
 
 button {
@@ -25,4 +26,12 @@ button {
     background-color: black;
     color: white;
     padding: 20px 40px;
+}
+
+#results {
+    text-align: center;
+}
+
+#results p {
+    color: white;
 }
